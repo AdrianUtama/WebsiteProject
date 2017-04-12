@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- ---------------------------------------GOOGLEMAP API STYLE--------------------------------------------- -->
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+
+  <body>
+
+  <!-- -----------------------------------------GOOGLE MAP API--------------------------------------------------- -->
+    <h3>Location of Toyota Center</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var loc = {lat: 29.750742, lng: -95.3622312};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: loc
+        });
+        var marker = new google.maps.Marker({
+          position: loc,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEEaFLCZ4co9ILFLC4aSQER8ZceoQzKic&callback=initMap">
+    </script>
+
+
+    <!-- ---------------------------------------SPORT STAT API--------------------------------------------- -->
+    
+
+
+
+
+
+
+
+    
+
+    <!-- ---------------------------------------WEATHER API------------------------------------------------ -->
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+  </body>
+
+
+</html>
