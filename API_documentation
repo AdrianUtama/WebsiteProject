@@ -1,6 +1,15 @@
 MySportsFeeds API
 https://www.mysportsfeeds.com/data-feeds/
 https://www.mysportsfeeds.com/data-feeds/api-docs/#
+username: twahl
+password: CSCE315API
+
+SportsRadar API
+https://developer.sportradar.com/files/index.html
+NBA: gwbx4pmc32du8f822hz5ta8d
+NFL: fub6cjk5hzat7v57qh8rh2vz
+Golf: j7fqvw7ds4xxq9spqbeasvr9
+MLB: ujsqx5nbb4c5kz5hkdt4k2wx
 
 weather API
 https://developer.yahoo.com/weather/#get-started 
