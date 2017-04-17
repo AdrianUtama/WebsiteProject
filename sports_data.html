@@ -1,36 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-<script src="https://www.mysportsfeeds.com/api/feed/pull/nhl/2017-playoff/full_game_schedule.xml"></script>
 <script>
-$(document).ready(function(){
-    $("button").click(function(){
-		$.ajax
-		({
-		  type: "GET",
-		  url: https://www.mysportsfeeds.com/api/feed/pull/nhl/2017-playoff/full_game_schedule.xml,
-		  dataType: 'json',
-		  async: false,
-		  headers: {
-			"Authorization": "Basic " + btoa(twahl + ":" + CSCE315API)
-		  },
-		  data: '{ "comment" }',
-		  success: function (){
-			alert('Thanks for your comment!'); 
-		  }
-		});
-    });
+	console.log("about to make API call");
+	$.ajax
+({
+  type: "GET",
+  url: "https://www.mysportsfeeds.com/api/feed/pull/mlb/2017-regular/daily_game_schedule.json?fordate=20170416",
+  dataType: 'json',
+  async: false,
+  headers: {
+    "Authorization": "Basic " + btoa("twahl" + ":" + "CSCE315API")
+  },
+  data: '{ "comment" }',
+  success: function (data){
+	console.log(data);
+    alert('Thanks for your comment!'); 
+  }
 });
 </script>
-</head>
-<body>
-
-<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
-
-<button>Get External Content</button>
-
-</body>
-</html>
-
-
-
