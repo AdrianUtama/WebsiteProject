@@ -63,7 +63,7 @@ margin-right: -120%;
 			
 			
 <div id="left" class="column">
-			<p>WHATEVER EXTRA CONTENT</p>
+			<p id = "sportcorrect"> Loading Schedule...</p>
 			</div>
 			
 			
@@ -108,15 +108,15 @@ function DoSomethingWithData(data){
     (data.fullgameschedule.gameentry[i].awayTeam.Name == "Rockets") ) {
          A.push(data.fullgameschedule.gameentry[i]);
          console.log(data.fullgameschedule.gameentry[i]);
-         var temp =  data.fullgameschedule.gameentry[i].homeTeam.Name + 
-                    " plays with " + data.fullgameschedule.gameentry[i].awayTeam.Name +
+         var temp =  "The " + data.fullgameschedule.gameentry[i].homeTeam.Name + 
+                    " play the " + data.fullgameschedule.gameentry[i].awayTeam.Name +
                     " on " + data.fullgameschedule.gameentry[i].date + 
                     " at " + data.fullgameschedule.gameentry[i].time + 
-                    " in " + data.fullgameschedule.gameentry[i].location + "<br>";
+                    " at the " + data.fullgameschedule.gameentry[i].location + "<br>";
         str += temp + "\n";
     }
   }
-  document.getElementById("sport").innerHTML = str;
+  document.getElementById("sportcorrect").innerHTML = str;
 }
 
 $.ajax
