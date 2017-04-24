@@ -8,7 +8,7 @@
 <style>
 #map {
 height: 400px;
-width: 400px;
+width: 100%;
 }
 
 
@@ -19,7 +19,7 @@ body {
 background: #FF7F00;
 min-height: 100%;			
 margin: 0;			
-padding-left: 390px;   /* LC fullwidth */
+padding-left: 500px;   /* LC fullwidth */
 padding-right: 500px;   /* RC fullwidth + CC padding */	
 min-width: 240px;       /* LC fullwidth + CC padding */
 }
@@ -33,9 +33,9 @@ margin-right: -210px;   /* RC fullwidth + CC padding */
 #center { padding: 0 20px; width: 100%; }
 
 #left {	
-width: 60%; /* LC width */ 
+width: 70%; /* LC width */ 
 padding:  0 10px;  /* LC padding */	
-right: 420px;  /* LC fullwidth + CC padding */	
+right: 500px;  /* LC fullwidth + CC padding */	
 margin-left: -100%;	
 }
 
@@ -50,18 +50,21 @@ margin-right: -120%;
 /*** IE Fix ***/
 * html #left {left: 170px;  /* RC fullwidth */ }
 
-
 </style>
+<body>
+
+	<a href="index.html"><IMG STYLE="position:absolute; TOP:5px; LEFT:10px; WIDTH:140px; HEIGHT:70px" SRC="back.png" alt = "BACK"></a>
 </head>
 
 <div id="center" class="column">
-        	<!-- ---------------------------------------TWITTER API------------------------------------------------ -->
-			<a class="twitter-timeline" data-width=100% data-height="1000" data-theme="dark" href="https://twitter.com/astros?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">Tweets by The Houston Astros</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+			<!-- ---------------------------------------FACEBOOK API------------------------------------------------ -->
+			<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAstros&tabs=timeline&width=5000&height=1000&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=1434339533256126" width="5000" height="1000" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 			</div>
 			
 			
 <div id="left" class="column">
-			<p>WHATEVER EXTRA CONTENT</p>
+        	<!-- ---------------------------------------TWITTER API------------------------------------------------ -->
+			<a class="twitter-timeline" data-width=100% data-height="1000" data-theme="dark" href="https://twitter.com/astros?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">Tweets by The Houston Astros</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 			</div>
 			
 			
