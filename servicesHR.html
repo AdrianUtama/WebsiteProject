@@ -98,26 +98,31 @@ margin-right: -120%;
 			<!-- ---------------------------------------SPORT API------------------------------------------------ -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
-<p id = "sport"> </p>
+<p id = "sport">HERE </p>
 
 <script type="text/javascript">
 function DoSomethingWithData(data){
   var A = [];
   var str = "<strong>Houston Rockets Play Time:</strong><br>"
+  str += "<table> <col width='400'> <tr> <th>Home team</th> <th>Away Team</th> <th>Data</th> <th>Time</th><th>Location</th> </tr>";
   for(i=0; i<data.fullgameschedule.gameentry.length;++i) {
     if(  (data.fullgameschedule.gameentry[i].homeTeam.Name == "Rockets") || 
     (data.fullgameschedule.gameentry[i].awayTeam.Name == "Rockets") ) {
          A.push(data.fullgameschedule.gameentry[i]);
          console.log(data.fullgameschedule.gameentry[i]);
-         var temp =  ">>The " + data.fullgameschedule.gameentry[i].homeTeam.Name + 
-                    " play the " + data.fullgameschedule.gameentry[i].awayTeam.Name +
-                    " on " + data.fullgameschedule.gameentry[i].date + 
-                    " at " + data.fullgameschedule.gameentry[i].time + 
-                    " at the " + data.fullgameschedule.gameentry[i].location + "<br>";
-        str += temp + "\n";
+         var temp =  
+         			"<tr>"
+         				+"<th>" + data.fullgameschedule.gameentry[i].homeTeam.Name + "</th>"
+	                    +"<th>" + data.fullgameschedule.gameentry[i].awayTeam.Name +"</th>"
+	                    +"<th>" + data.fullgameschedule.gameentry[i].date + "</th>"
+	                    +"<th>" + data.fullgameschedule.gameentry[i].time + "</th>"
+	                    +"<th>" + data.fullgameschedule.gameentry[i].location + "</th>"
+                    +"</tr>";
+        str += temp ;
     }
+    str += "</table>";
   }
-  document.getElementById("sportCorrect").innerHTML = str;
+  document.getElementById("sport").innerHTML = str;
 
 }
 
