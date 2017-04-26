@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html>
-<title>Houston Rockets</title>
-<center><font size = +6><b>Houston Rockets</b><br/></font></center>
-<font size = +1> <br/> </font>
-<head>
+<html><head><title>Popular Golfers</title>
+</head><body><center><font size="+6"><b>Popular Golfers</b><br></font></center>
+<font size="+1"> <br> </font>
+
 
 <style>
 #map {
 height: 400px;
-width: 100%;
+width: 400px;
 }
 
 
@@ -16,10 +14,10 @@ width: 100%;
  * 3col Holy Grail
  */
 body {
-background: #0D254C;
+background: rgb(37, 50, 85);
 min-height: 100%;			
 margin: 0;			
-padding-left: 500px;   /* LC fullwidth */
+padding-left: 390px;   /* LC fullwidth */
 padding-right: 500px;   /* RC fullwidth + CC padding */	
 min-width: 240px;       /* LC fullwidth + CC padding */
 }
@@ -33,14 +31,14 @@ margin-right: -210px;   /* RC fullwidth + CC padding */
 #center { padding: 0 20px; width: 100%; }
 
 #left {	
-width: 70%; /* LC width */ 
+width: 300px; /* LC width */ 
 padding:  0 10px;  /* LC padding */	
-right: 500px;  /* LC fullwidth + CC padding */	
+right: 420px;  /* LC fullwidth + CC padding */	
 margin-left: -100%;	
 }
 
 #right { 
-width: 60%; /* RC width */ 
+width: 400px; /* RC width */ 
 padding: 0 20px; /* RC padding */ 
 margin-right: -120%; 
 }
@@ -50,57 +48,75 @@ margin-right: -120%;
 /*** IE Fix ***/
 * html #left {left: 170px;  /* RC fullwidth */ }
 
+
 </style>
-<body>
 
-	<a href="index.html"><IMG STYLE="position:absolute; TOP:5px; LEFT:10px; WIDTH:140px; HEIGHT:70px" SRC="http://essentialoilexpert.com/wp-content/uploads/2014/10/back-button.png" alt = "BACK"></a>
-</head>
+<!-- Center Column ----------------------------------------------------->
+<div id="center" class="column"></div>
 
-<div id="center" class="column">
-        	<!-- ---------------------------------------TWITTER API------------------------------------------------ -->
-			<a class="twitter-timeline" data-width=100% data-height="1000" data-theme="dark" href="https://twitter.com/HoustonRockets?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">Tweets by The Houston Rockets</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<!-- Left Column ------------------------------------------------------->
+<div id="left" class="column"></div>
+<div id="demo">This is the information for Adam Scott</div>
+<img id="myImg" src="adamScott.jpg" width="300" height="360">
+<script>
+function jordanFunction() {
+    document.getElementById("demo").innerHTML = "This is the information for Jordan Speith";
+	document.getElementById("myImg").src = "jordanSpeith.jpg";
+	document.getElementById("myImg").width = "300";
+	document.getElementById("myImg").height = "315";
+}
+function roryFunction() {
+    document.getElementById("demo").innerHTML = "This is the information for Rory Mckilroy";
+	document.getElementById("myImg").src = "roryMckilroy.jpg";
+	document.getElementById("myImg").width = "500";
+	document.getElementById("myImg").height = "315";
+}
+function philFunction() {
+    document.getElementById("demo").innerHTML = "This is the information for Phil Mickelson";
+	document.getElementById("myImg").src = "philMickelson.jpg";
+	document.getElementById("myImg").width = "500";
+	document.getElementById("myImg").height = "315";
+}
+function jackFunction() {
+    document.getElementById("demo").innerHTML = "This is the information for Jack Nicklaus";
+	document.getElementById("myImg").src = "jackNicklus.jpg";
+	document.getElementById("myImg").width = "450";
+	document.getElementById("myImg").height = "315";
+}
+function tigerFunction() {
+    document.getElementById("demo").innerHTML = "This is the information for Tiger Woods";
+	document.getElementById("myImg").src = "tigerWoods.jpg";
+	document.getElementById("myImg").width = "600";
+	document.getElementById("myImg").height = "330";
+}
+function adamFunction() {
+    document.getElementById("demo").innerHTML = "This is the information for Adam Scott";
+	document.getElementById("myImg").src = "adamScott.jpg";
+	document.getElementById("myImg").width = "300";
+	document.getElementById("myImg").height = "360";
+}
+function clearFunction() {
+    document.getElementById("demo").innerHTML = "";
+	document.getElementById("myImg");
+}
+</script>
 
-			</div>
+<p>Links to Popular Golfers</p>
+			<button onclick="jordanFunction()">Jordan Speith </button> <br>
+            <button onclick="roryFunction()">Rory Mckilroy   </button> <br>
+            <button onclick="philFunction()">Phil Mickelson  </button> <br>
+            <button onclick="jackFunction()">Jack Nicklaus   </button> <br>
+            <button onclick="tigerFunction()">Tiger Woods    </button> <br>
+            <button onclick="adamFunction()">Adam Scott      </button> <br>
+			<button onclick="clearFunction()">Clear          </button> <br>
+<!-- Right Column ------------------------------------------------------>
+<div id="right" class="column"></div>
+
+
 			
-			
-<div id="left" class="column">
-</div>
-			
-			
-<div id="right" class="column">
-			<!-- -----------------------------------------GOOGLE MAP API--------------------------------------------------- -->
-			<h3><center><font size = +2>Location of Toyota Center</font></center></h3>
-			<div id="map"></div>
-			<script>
-			  function initMap() {
-				var loc = {lat: 29.750742, lng: -95.3622312};
-				var map = new google.maps.Map(document.getElementById('map'), {
-				  zoom: 12,
-				  center: loc
-				});
-				var marker = new google.maps.Marker({
-				  position: loc,
-				  map: map
-				});
-			  }
-			</script>
-			<script async defer
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEEaFLCZ4co9ILFLC4aSQER8ZceoQzKic&callback=initMap">
-			</script>
-			<br/>
-			
-			<!-- ---------------------------------------WEATHER API------------------------------------------------ -->
-			<span style="display: block !important; width: 400px; text-align: center; font-family: sans-serif; font-size: 12px;"><a href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:77001.1.99999&bannertypeclick=wu_clean2day" title="Houston, Texas Weather Forecast" target="_blank"><img src="http://weathersticker.wunderground.com/weathersticker/cgi-bin/banner/ban/wxBanner?bannertype=wu_clean2day_cond&airportcode=KMCJ&ForcedCity=Houston&ForcedState=TX&zip=77001&language=EN" alt="Find more about Weather in Houston, TX" width="400" /></a><br><a href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:77001.1.99999&bannertypeclick=wu_clean2day" title="Get latest Weather Forecast updates" style="font-family: sans-serif; font-size: 12px" target="_blank">Click for weather forecast</a></span>
- 			</div>
 
 
-
-
-
-
-</body>
-</html>
-
+</body></html>
 
 
 
