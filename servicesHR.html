@@ -99,22 +99,22 @@ padding: 0 10px; /* RC padding */
 			  var str = "<strong>Houston Rockets Play Time:</strong><br>"
 			  str += "<table> <tr> <th>Home team</th> <th>Away Team</th> <th>Date</th> <th>Time</th><th>Location</th> </tr>";
 			  for(i=0; i<data.fullgameschedule.gameentry.length;++i) {
-				if(  (data.fullgameschedule.gameentry[i].homeTeam.Name == "Rockets") || 
-				(data.fullgameschedule.gameentry[i].awayTeam.Name == "Rockets") ) {
-					 A.push(data.fullgameschedule.gameentry[i]);
-					 console.log(data.fullgameschedule.gameentry[i]);
-					 var temp =  
-								"<tr>"
-									+"<td>" + data.fullgameschedule.gameentry[i].homeTeam.Name + "</td>"
-									+"<td>" + data.fullgameschedule.gameentry[i].awayTeam.Name +"</td>"
-									+"<td>" + data.fullgameschedule.gameentry[i].date + "</td>"
-									+"<td>" + data.fullgameschedule.gameentry[i].time + "</td>"
-									+"<td>" + data.fullgameschedule.gameentry[i].location + "</td>"
-								+"</tr>";
-					str += temp ;
-				}
-				str += "</table>";
+  				if(  (data.fullgameschedule.gameentry[i].homeTeam.Name == "Rockets") || 
+  				(data.fullgameschedule.gameentry[i].awayTeam.Name == "Rockets") ) {
+  					 A.push(data.fullgameschedule.gameentry[i]);
+  					 console.log(data.fullgameschedule.gameentry[i]);
+  					 var temp =  
+  								"<tr>"
+  									+"<td>" + data.fullgameschedule.gameentry[i].homeTeam.Name + "</td>"
+  									+"<td>" + data.fullgameschedule.gameentry[i].awayTeam.Name +"</td>"
+  									+"<td>" + data.fullgameschedule.gameentry[i].date + "</td>"
+  									+"<td>" + data.fullgameschedule.gameentry[i].time + "</td>"
+  									+"<td>" + data.fullgameschedule.gameentry[i].location + "</td>"
+  								+"</tr>";
+  					str += temp ;
+  				}
 			  }
+        str += "</table>";
 			  document.getElementById("sport").innerHTML = str;
 
 			}
