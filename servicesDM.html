@@ -11,7 +11,8 @@ height: 400px;
 width: 100%;
 }
 table, th, td{
-  border: 1px solid black;
+  border: 1px solid white;
+  color: white;
 }
 .controls {
 margin-top: 10px;
@@ -97,7 +98,7 @@ padding: 0 10px; /* RC padding */
       <script type="text/javascript">
       function DoSomethingWithData(data){
         var A = [];
-        var str = "<strong>Dallas Mavericks Play Time:</strong><br>"
+        var str = "<strong><font color = white>Dallas Mavericks Play Time:</font></strong><br>"
         str += "<table> <tr> <th>Home team</th> <th>Away Team</th> <th>Date</th> <th>Time</th><th>Location</th> </tr>";
         for(i=0; i<data.fullgameschedule.gameentry.length;++i) {
           if(  (data.fullgameschedule.gameentry[i].homeTeam.Name == "Mavericks") || 
