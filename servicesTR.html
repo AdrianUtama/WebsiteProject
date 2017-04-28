@@ -101,8 +101,8 @@ padding: 0 10px; /* RC padding */
         var str = "<strong>Texas Rangers Play Time:</strong><br>"
         str += "<table> <tr> <th>Home team</th> <th>Away Team</th> <th>Date</th> <th>Time</th><th>Location</th> </tr>";
         for(i=0; i<data.fullgameschedule.gameentry.length;++i) {
-          if(  (data.fullgameschedule.gameentry[i].homeTeam.Name == "Mavericks") || 
-          (data.fullgameschedule.gameentry[i].awayTeam.Name == "Mavericks") ) {
+          if(  (data.fullgameschedule.gameentry[i].homeTeam.Name == "Rangers") || 
+          (data.fullgameschedule.gameentry[i].awayTeam.Name == "Rangers") ) {
              A.push(data.fullgameschedule.gameentry[i]);
              console.log(data.fullgameschedule.gameentry[i]);
              var temp =  
@@ -124,7 +124,7 @@ padding: 0 10px; /* RC padding */
       $.ajax
       ({
         type: "GET",
-        url: "https://www.mysportsfeeds.com/api/feed/pull/nba/2016-playoff/full_game_schedule.json",
+        url: "https://www.mysportsfeeds.com/api/feed/pull/mlb/2016-playoff/full_game_schedule.json",
         dataType: 'json',
         async: false,
         headers: {
