@@ -99,16 +99,23 @@ padding: 0 10px; /* RC padding */
       function DoSomethingWithData(data){
       	var counter = 0;
         var A = [];
-        var str = "<strong>Houston Texans Play Time:</strong><br>"
+        var str = "<strong>Houston Texans Play Times:</strong><br>"
         str += "<table> <tr> <th>Home team</th> <th>Away Team</th> <th>Date</th> <th>Time</th><th>Location</th> </tr>";
         for(i=0; i<data.fullgameschedule.gameentry.length;++i) {
           if(  (data.fullgameschedule.gameentry[i].homeTeam.Name == "Texans") || 
           (data.fullgameschedule.gameentry[i].awayTeam.Name == "Texans") ) {
 
-          	++counter;
-          	if(counter == 6){
-          		break;
-          	}
+  					var today = new Date();
+			        var gameDay = new Date(data.fullgameschedule.gameentry[i].date);
+			        console.log(gameDay);
+			        if( gameDay < today ){ //filter the passed days 
+			        	continue;
+			        }  else {
+			        	++counter;
+			        }
+		          	if(counter == 6){
+		          		break;
+		          	}
 
              A.push(data.fullgameschedule.gameentry[i]);
              console.log(data.fullgameschedule.gameentry[i]);
