@@ -106,7 +106,7 @@ padding: 0 10px; /* RC padding */
           (data.fullgameschedule.gameentry[i].awayTeam.Name == "Rangers") ) {
 
           	 ++counter;
-          	if(counter == 5){
+          	if(counter == 6){
           		break;
           	}
 
@@ -124,6 +124,9 @@ padding: 0 10px; /* RC padding */
           }
         }
         str += "</table>";
+        if(counter==0){
+        	str = "<font color = white><strong>No Scheduled Games</strong></font>";
+        }
         document.getElementById("sport").innerHTML = str;
 
       }
@@ -263,7 +266,7 @@ padding: 0 10px; /* RC padding */
 			<br/>
 			
 			<!-- ---------------------------------------WEATHER API------------------------------------------------ -->
-			<span style="display: block !important; width: 400px; text-align: center; font-family: sans-serif; font-size: 12px;"><a href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:76001.1.99999&bannertypeclick=wu_clean2day" title="Arlington, Texas Weather Forecast" target="_blank"><img src="http://weathersticker.wunderground.com/weathersticker/cgi-bin/banner/ban/wxBanner?bannertype=wu_clean2day_cond&airportcode=KGKY&ForcedCity=Arlington&ForcedState=TX&zip=76001&language=EN" alt="Find more about Weather in Arlington, TX" width="400" /></a><br><a href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:76001.1.99999&bannertypeclick=wu_clean2day" title="Get latest Weather Forecast updates" style="font-family: sans-serif; font-size: 12px" target="_blank">Click for weather forecast</a></span>
+			<span style="display: block !important; width: 400px; text-align: center; font-family: sans-serif; font-size: 12px;"><a href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:76001.1.99999&bannertypeclick=wu_clean2day" title="Arlington, Texas Weather Forecast" target="_blank"><img src="http://weathersticker.wunderground.com/weathersticker/cgi-bin/banner/ban/wxBanner?bannertype=wu_clean2day_cond&airportcode=KGKY&ForcedCity=Arlington&ForcedState=TX&zip=76001&language=EN" alt="Find more about Weather in Arlington, TX" width="400" /></a><br><a href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:76001.1.99999&bannertypeclick=wu_clean2day" title="Get latest Weather Forecast updates" style="font-family: sans-serif; font-size: 25px" target="_blank">Click for weather forecast</a></span>
 			</div>
 
 
