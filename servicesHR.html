@@ -96,11 +96,17 @@ padding: 0 10px; /* RC padding */
 			<script type="text/javascript">
 			function DoSomethingWithData(data){
 			  var A = [];
+			  var counter = 0;
 			  var str = "<strong>Houston Rockets Play Time:</strong><br>"
 			  str += "<table> <tr> <th>Home team</th> <th>Away Team</th> <th>Date</th> <th>Time</th><th>Location</th> </tr>";
 			  for(i=0; i<data.fullgameschedule.gameentry.length;++i) {
   				if(  (data.fullgameschedule.gameentry[i].homeTeam.Name == "Rockets") || 
   				(data.fullgameschedule.gameentry[i].awayTeam.Name == "Rockets") ) {
+
+		           	 ++counter;
+		          	if(counter == 5){
+		          		break;
+		          	}
   					 A.push(data.fullgameschedule.gameentry[i]);
   					 console.log(data.fullgameschedule.gameentry[i]);
   					 var temp =  
