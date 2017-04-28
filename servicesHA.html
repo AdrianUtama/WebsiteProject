@@ -107,7 +107,7 @@ padding: 0 10px; /* RC padding */
              console.log(data.fullgameschedule.gameentry[i]);
           	
           	 ++counter;
-          	if(counter == 5){
+          	if(counter == 6){
           		break;
           	}
 
@@ -123,6 +123,9 @@ padding: 0 10px; /* RC padding */
           }
         }
         str += "</table>";
+        if(counter==0){
+        	str = "<font color = white><strong>No Scheduled Games</strong></font>";
+        }
         document.getElementById("sport").innerHTML = str;
       }
 

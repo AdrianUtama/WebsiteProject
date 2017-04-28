@@ -97,12 +97,19 @@ padding: 0 10px; /* RC padding */
 
       <script type="text/javascript">
       function DoSomethingWithData(data){
+      	var counter = 0;
         var A = [];
         var str = "<strong>Houston Texans Play Time:</strong><br>"
         str += "<table> <tr> <th>Home team</th> <th>Away Team</th> <th>Date</th> <th>Time</th><th>Location</th> </tr>";
         for(i=0; i<data.fullgameschedule.gameentry.length;++i) {
           if(  (data.fullgameschedule.gameentry[i].homeTeam.Name == "Texans") || 
           (data.fullgameschedule.gameentry[i].awayTeam.Name == "Texans") ) {
+
+          	++counter;
+          	if(counter == 6){
+          		break;
+          	}
+
              A.push(data.fullgameschedule.gameentry[i]);
              console.log(data.fullgameschedule.gameentry[i]);
              var temp =  
@@ -117,6 +124,9 @@ padding: 0 10px; /* RC padding */
           }
         }
         str += "</table>";
+        if(counter==0){
+        	str = "<font color = white><strong>No Scheduled Games</strong></font>";
+        }
         document.getElementById("sport").innerHTML = str;
 
       }

@@ -121,6 +121,9 @@ padding: 0 10px; /* RC padding */
           }
         }
         str += "</table>";
+        if(counter==0){
+        	str = "<font color = white><strong>No Scheduled Games</strong></font>";
+        }
         document.getElementById("sport").innerHTML = str;
 
       }
