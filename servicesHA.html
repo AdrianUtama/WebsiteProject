@@ -102,7 +102,7 @@ padding: 0 10px; /* RC padding */
       function DoSomethingWithData(data){
         var A = [];
         var counter = 0;
-        var str = "<strong>Houston Astros Play Times:</strong><br>"
+        var str = "<strong>Houston Astros Play Times(2016):</strong><br>"
         str += "<table> <tr> <th>Home team</th> <th>Away Team</th> <th>Date</th> <th>Time</th><th>Location</th> </tr>";
         for(i=0; i<data.fullgameschedule.gameentry.length;++i) {
           if(  (data.fullgameschedule.gameentry[i].homeTeam.Name == "Astros") || 
@@ -113,11 +113,11 @@ padding: 0 10px; /* RC padding */
   					var today = new Date();
 			        var gameDay = new Date(data.fullgameschedule.gameentry[i].date);
 			        console.log(gameDay);
-			        if( gameDay < today ){ //filter the passed days 
-			        	continue;
-			        }  else {
+			        // if( gameDay < today ){ //filter the passed days 
+			        // 	continue;
+			        // }  else {
 			        	++counter;
-			        }
+			        // }
 		          	if(counter == 16){
 		          		break;
 		          	}
@@ -143,7 +143,7 @@ padding: 0 10px; /* RC padding */
       $.ajax
       ({
         type: "GET",
-        url: "https://www.mysportsfeeds.com/api/feed/pull/mlb/2016-playoff/full_game_schedule.json",
+        url: "https://www.mysportsfeeds.com/api/feed/pull/mlb/2016-regular/full_game_schedule.json",
         dataType: 'json',
         async: false,
         headers: {
