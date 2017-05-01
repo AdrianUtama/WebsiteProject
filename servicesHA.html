@@ -47,8 +47,8 @@ box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 #mode-selector {
 color: #fff;
 background-color: #B6BFBF;
-margin-left: 12px;
-padding: 5px 11px 0px 11px;
+margin-left: 2px;
+padding: 5px 5px 0px 5px;
 }
 
 #mode-selector label {
@@ -215,10 +215,12 @@ function Twitter() {
 
 	<div id="mode-selector" class="controls">
 
+	  <input type="radio" name="type" id="changemode-walking" checked="checked">
+      <label for="changemode-walking">Walking</label>
+	  <input type="radio" name="type" id="changemode-transit">
+      <label for="changemode-transit">Transit</label>
       <input type="radio" name="type" id="changemode-driving">
       <label for="changemode-driving">Driving</label>
-      <input type="radio" name="type" id="changemode-driving">
-      <label for="changemode-driving">Walking</label>
     </div>
 
     <div id="map"></div>
@@ -245,7 +247,7 @@ function Twitter() {
         this.map = map;
         this.originPlaceId = null;
         this.destinationPlaceId = null;
-        this.travelMode = 'DRIVING';
+        this.travelMode = 'WALKING';
         var originInput = document.getElementById('origin-input');
         var modeSelector = document.getElementById('mode-selector');
         this.directionsService = new google.maps.DirectionsService;
@@ -255,6 +257,8 @@ function Twitter() {
         var originAutocomplete = new google.maps.places.Autocomplete(
             originInput, {placeIdOnly: true});
 
+        this.setupClickListener('changemode-walking', 'WALKING');
+		this.setupClickListener('changemode-transit', 'TRANSIT');
         this.setupClickListener('changemode-driving', 'DRIVING');
 
         this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
