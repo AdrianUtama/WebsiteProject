@@ -80,22 +80,26 @@ padding: 0 10px; /* RC padding */
 
 #footer { clear: both; }
 
+.Facebook{position: relative; float: left}
+.Twitter{position: relative; float: left}
+
 /*** IE Fix ***/
 * html #left {left: 170px;  /* RC fullwidth */ }
 
 </style>
+
 <body>
 
 	<a href="index.html"><IMG STYLE="position:absolute; TOP:5px; LEFT:10px; WIDTH:140px; HEIGHT:70px" SRC="http://essentialoilexpert.com/wp-content/uploads/2014/10/back-button.png" alt = "BACK"></a>
 	<a href="http://www.mlb.com/rangers"><font size = +3 color = "black" STYLE="position:absolute; TOP:10px; RIGHT:20px;"><u>Click for Official MLB Page</u></font></a></div>
-	</head>
+</head>
 
 <div id="left" class="column">
       <!-- ---------------------------------------SPORT API------------------------------------------------ -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
       <p id = "sport">HERE</p>
 
-      <script type="text/javascript">
+	<script type="text/javascript">
       function DoSomethingWithData(data){
       	var counter = 0;
         var A = [];
@@ -133,7 +137,7 @@ padding: 0 10px; /* RC padding */
         }
         str += "</table>";
         if(counter==0){
-        	str = "<font color = white><strong>No Scheduled Games</strong></font>";
+        	str = "<font color = white><strong>No Games Available</strong></font>";
         }
         document.getElementById("sport").innerHTML = str;
       }
@@ -151,17 +155,46 @@ padding: 0 10px; /* RC padding */
         DoSomethingWithData(data);
         }
       });
-      </script>
-        	<!-- ---------------------------------------TWITTER API------------------------------------------------ -->
-			<a class="twitter-timeline" data-width=100% data-height="1000" data-theme="dark" href="https://twitter.com/Rangers?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">Tweets by The Texas Rangers</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-			</div>
-			
+	</script>
 
-<div id="center" class="column">
-			<!-- ---------------------------------------FACEBOOK API------------------------------------------------ -->
-			<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FRangers&tabs=timeline&width=5000&height=1000&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=1434339533256126" width= 100% height="1000" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+</div>
+			
+			<!-- ---------------------------------------Center Column------------------------------------------------ -->
+
+			<script>
+			function yourfunction() { 
+			$('.Facebook').show();
+			$('.Twitter').hide();
+			}
+			window.onload = yourfunction;
+			
+			function Facebook() {
+				$('.Facebook').show();
+				$('.Twitter').hide();
+				}
+			function Twitter() {
+				$('.Facebook').hide();
+				$('.Twitter').show();
+				}			
+			</script>
+			
+			<button onclick="Facebook()">Facebook</button>
+			<button onclick="Twitter()">Twitter</button> <br>
+
+			<div id = "center" class = "Twitter">
+				<!-- ---------------------------------------TWITTER API------------------------------------------------ -->
+				<a class="twitter-timeline" data-width=100% data-height="1000" data-theme="dark" href="https://twitter.com/Rangers?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">Tweets by The Texas Rangers</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+			</div>	
+			
+			<div id = "center" class = "Facebook">
+        	<!-- ---------------------------------------FACEBOOK API------------------------------------------------ -->
+				<center>
+					<iframe id = "socialMedia" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FRangers&tabs=timeline&width=5000&height=1000&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=1434339533256126" width= 100% height="1000" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+				</center>
 			</div>
-						
+
+
+
 			
 <div id="right" class="column">
 			<!-- -----------------------------------------GOOGLE MAP API--------------------------------------------------- -->
@@ -276,7 +309,7 @@ padding: 0 10px; /* RC padding */
 			
 			<!-- ---------------------------------------WEATHER API------------------------------------------------ -->
 			<span style="display: block !important; width: 400px; text-align: center; font-family: sans-serif; font-size: 12px;"><a href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:76001.1.99999&bannertypeclick=wu_clean2day" title="Arlington, Texas Weather Forecast" target="_blank"><img src="http://weathersticker.wunderground.com/weathersticker/cgi-bin/banner/ban/wxBanner?bannertype=wu_clean2day_cond&airportcode=KGKY&ForcedCity=Arlington&ForcedState=TX&zip=76001&language=EN" alt="Find more about Weather in Arlington, TX" width="400" /></a><br><a href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:76001.1.99999&bannertypeclick=wu_clean2day" title="Get latest Weather Forecast updates" style="font-family: sans-serif; font-size: 25px" target="_blank">Click for weather forecast</a></span>
-			</div>
+</div>
 
 
 
@@ -285,19 +318,3 @@ padding: 0 10px; /* RC padding */
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
