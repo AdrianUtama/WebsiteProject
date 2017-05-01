@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <title>Dallas Mavericks</title>
-<center style = "color : white"><font size = +6><b>Dallas Mavericks</b><br/></font></center>
+<center style = "color : white"><font size = +6><b>Dallas Mavericks</b><br></font><br>
+	<button class = "button" onclick="Facebook()"><img src="http://3.bp.blogspot.com/-KNqO9JuXUN8/Ti2b1LHRquI/AAAAAAAAAIU/L6k8Wlzxj9k/s1600/logo_facebook.png" width = "15px" height = "15px" alt=""> Facebook</button>
+	<button class = "button" onclick="Twitter()"><img src="http://3.bp.blogspot.com/-NxouMmz2bOY/T8_ac97cesI/AAAAAAAAGg0/e3vY1_bdnbE/s1600/Twitter+logo+2012.png" width = "15px" height = "15px" alt="">Twitter</button> 
+</center>
 <font size = +1> <br/> </font>
 <head>
 
@@ -10,10 +13,24 @@
 height: 400px;
 width: 100%;
 }
+
 table, th, td{
   border: 1px solid white;
   color: white;
 }
+
+.button {
+    border: 1px solid grey;
+    color: black;
+    padding: 5px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 0;
+    cursor: pointer;
+}
+
 .controls {
 margin-top: 10px;
 border: 1px solid transparent;
@@ -179,10 +196,6 @@ padding: 0 10px; /* RC padding */
 		$('.Twitter').show();
 	}			
 </script>
-
-<button onclick="Facebook()">Facebook</button>
-<button onclick="Twitter()">Twitter</button> <br>
-
 
 <div id = "center" class = "Twitter">
 	<!-- ---------------------------------------TWITTER API------------------------------------------------ -->
