@@ -1,4 +1,4 @@
-Please download copy to your local machine, not directly from github repository/tamu servers.
+Please download copy to your local machine. Do not try to open html files directly from github repository or tamu servers.
 
 Start by opening index.html
 
