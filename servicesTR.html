@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-<title>Texas Rangers</title>
-<center><font size = +6><b>Texas Rangers</b><br></font><br>
+<title>San Antonio Spurs</title>
+<center><font size = +6><b>San Antonio Spurs</b><br></font><br>
 	<button class = "button" onclick="Facebook()"><img src="http://3.bp.blogspot.com/-KNqO9JuXUN8/Ti2b1LHRquI/AAAAAAAAAIU/L6k8Wlzxj9k/s1600/logo_facebook.png" width = "15px" height = "15px" alt=""> Facebook</button>
 	<button class = "button" onclick="Twitter()"><img src="http://3.bp.blogspot.com/-NxouMmz2bOY/T8_ac97cesI/AAAAAAAAGg0/e3vY1_bdnbE/s1600/Twitter+logo+2012.png" width = "15px" height = "15px" alt="">Twitter</button> 
 </center>
@@ -47,8 +47,8 @@ box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 #mode-selector {
 color: #fff;
 background-color: #B6BFBF;
-margin-left: 12px;
-padding: 5px 11px 0px 11px;
+margin-left: 2px;
+padding: 5px 5px 0px 5px;
 }
 
 #mode-selector label {
@@ -61,12 +61,11 @@ table, th, td{
 	border: 1px solid black;
 }
 
-
 /**
  * 3col Holy Grail
  */
 body {
-background: #BD1021;
+background: #B6BFBF;
 min-height: 100%;			
 margin: 0;			
 min-width: 150px;       /* LC fullwidth + CC padding */
@@ -107,7 +106,7 @@ padding: 0 10px; /* RC padding */
 <body>
 
 	<a href="index.html"><IMG STYLE="position:absolute; TOP:5px; LEFT:10px; WIDTH:140px; HEIGHT:70px" SRC="http://essentialoilexpert.com/wp-content/uploads/2014/10/back-button.png" alt = "BACK"></a>
-	<a href="http://www.mlb.com/rangers"><font size = +3 color = "black" STYLE="position:absolute; TOP:10px; RIGHT:20px;"><u>Click for Official MLB Page</u></font></a></div>
+	<a href="http://www.nba.com/spurs/"><font size = +3 color = "black" STYLE="position:absolute; TOP:10px; RIGHT:20px;"><u>Click for Official NBA Page</u></font></a></div>
 </head>
 
 <div id="left" class="column">
@@ -117,54 +116,49 @@ padding: 0 10px; /* RC padding */
 
 	<script type="text/javascript">
       function DoSomethingWithData(data){
-      	var counter = 0;
         var A = [];
-        var str = "<strong>Texas Rangers Play Times(2016):</strong><br>"
+        var counter = 0;
+        var str = "<strong>San Antonio Spurs Play Times:</strong><br>"
         str += "<table> <tr> <th>Home team</th> <th>Away Team</th> <th>Date</th> <th>Time</th><th>Location</th> </tr>";
         for(i=0; i<data.fullgameschedule.gameentry.length;++i) {
-	          if(  (data.fullgameschedule.gameentry[i].homeTeam.Name == "Rangers") || 
-	          ( data.fullgameschedule.gameentry[i].awayTeam.Name == "Rangers") ) {
-		          	console.log(data.fullgameschedule.gameentry[i]);
-		            
+          if(  (data.fullgameschedule.gameentry[i].homeTeam.Name == "Spurs") || 
+          (data.fullgameschedule.gameentry[i].awayTeam.Name == "Spurs") ) {
   					var today = new Date();
 			        var gameDay = new Date(data.fullgameschedule.gameentry[i].date);
 			        console.log(gameDay);
-
-              /*use previous reason for schedule, because cannot get the current season data*/
-
-			        // if( gameDay < today ){ //filter the passed days 
-			        // 	continue;
-			        // }  else {
+			        if( gameDay < today ){ //filter the passed days 
+			        	continue;
+			        }  else {
 			        	++counter;
-			        // }
+			        }
 		          	if(counter == 16){
 		          		break;
-		          	}
-		          	
-		             A.push(data.fullgameschedule.gameentry[i]);
-		             console.log(data.fullgameschedule.gameentry[i]);
-		             var temp =  
-		                  "<tr>"
-		                    +"<td>" + data.fullgameschedule.gameentry[i].homeTeam.Name + "</td>"
-		                    +"<td>" + data.fullgameschedule.gameentry[i].awayTeam.Name +"</td>"
-		                    +"<td>" + data.fullgameschedule.gameentry[i].date + "</td>"
-		                    +"<td>" + data.fullgameschedule.gameentry[i].time + "</td>"
-		                    +"<td>" + data.fullgameschedule.gameentry[i].location + "</td>"
-		                  +"</tr>";
-		             str += temp ;
-	          }
+		          	}       	
+             A.push(data.fullgameschedule.gameentry[i]);
+             console.log(data.fullgameschedule.gameentry[i]);
+             var temp =  
+                  "<tr>"
+                    +"<td>" + data.fullgameschedule.gameentry[i].homeTeam.Name + "</td>"
+                    +"<td>" + data.fullgameschedule.gameentry[i].awayTeam.Name +"</td>"
+                    +"<td>" + data.fullgameschedule.gameentry[i].date + "</td>"
+                    +"<td>" + data.fullgameschedule.gameentry[i].time + "</td>"
+                    +"<td>" + data.fullgameschedule.gameentry[i].location + "</td>"
+                  +"</tr>";
+            str += temp ;
+          }
         }
         str += "</table>";
         if(counter==0){
         	str = "<font color = white><strong>No Games Available</strong></font>";
         }
         document.getElementById("sport").innerHTML = str;
+
       }
 
       $.ajax
       ({
         type: "GET",
-        url: "https://www.mysportsfeeds.com/api/feed/pull/mlb/2016-regular/full_game_schedule.json",
+        url: "https://www.mysportsfeeds.com/api/feed/pull/nba/2017-playoff/full_game_schedule.json",
         dataType: 'json',
         async: false,
         headers: {
@@ -177,6 +171,8 @@ padding: 0 10px; /* RC padding */
 	</script>
 
 </div>
+			
+
 			
 			<!-- ---------------------------------------Center Column------------------------------------------------ -->
 
@@ -199,31 +195,30 @@ function Twitter() {
 
 <div id = "center" class = "Twitter">
 	<!-- ---------------------------------------TWITTER API------------------------------------------------ -->
-	<a class="twitter-timeline" data-width=100% data-height="1000" data-theme="dark" href="https://twitter.com/Rangers?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">Tweets by The Texas Rangers</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	<a class="twitter-timeline" data-width=100% data-height="1000" data-theme="dark" href="https://twitter.com/Spurs">Tweets by The San Antonio Spurs</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>	
 
 <div id = "center" class = "Facebook">
 <!-- ---------------------------------------FACEBOOK API------------------------------------------------ -->
 	<center>
-		<iframe id = "socialMedia" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FRangers&tabs=timeline&width=5000&height=1000&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=1434339533256126" width= 100% height="1000" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+		<iframe id = "socialMedia" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FSpurs&tabs=timeline&width=5000&height=1000&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=1434339533256126" width= 100% height="1000" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 	</center>
 </div>
-
-
-
 			
+						
 <div id="right" class="column">
-			<!-- -----------------------------------------GOOGLE MAP API--------------------------------------------------- -->
-			<h3><center style = "color : black"><font size = +2>Directions to Globe Life Park</font></center></h3>
+				<!-- -----------------------------------------GOOGLE MAP API--------------------------------------------------- -->
+			<h3><center style = "color : black"><font size = +2>Directions to AT&T Center</font></center></h3>
 			<input id="origin-input" class="controls" type="text"
 				placeholder="Enter an origin location">
 
 	<div id="mode-selector" class="controls">
-		
+	  <input type="radio" name="type" id="changemode-walking" checked="checked">
+      <label for="changemode-walking">Walking</label>
+	  <input type="radio" name="type" id="changemode-transit">
+      <label for="changemode-transit">Transit</label>
       <input type="radio" name="type" id="changemode-driving">
       <label for="changemode-driving">Driving</label>
-      <input type="radio" name="type" id="changemode-driving">
-      <label for="changemode-driving">Walking</label>
     </div>
 
     <div id="map"></div>
@@ -236,8 +231,8 @@ function Twitter() {
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           mapTypeControl: false,
-          center: {lat: 32.7513 , lng: -97.0825},
-          zoom: 17
+          center: {lat: 29.4271 , lng: -98.4374},
+          zoom: 15
         });
 
         new AutocompleteDirectionsHandler(map);
@@ -250,7 +245,7 @@ function Twitter() {
         this.map = map;
         this.originPlaceId = null;
         this.destinationPlaceId = null;
-        this.travelMode = 'DRIVING';
+        this.travelMode = 'WALKING';
         var originInput = document.getElementById('origin-input');
         var modeSelector = document.getElementById('mode-selector');
         this.directionsService = new google.maps.DirectionsService;
@@ -260,6 +255,8 @@ function Twitter() {
         var originAutocomplete = new google.maps.places.Autocomplete(
             originInput, {placeIdOnly: true});
 
+		this.setupClickListener('changemode-walking', 'WALKING');
+		this.setupClickListener('changemode-transit', 'TRANSIT');
         this.setupClickListener('changemode-driving', 'DRIVING');
 
         this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
@@ -307,7 +304,7 @@ function Twitter() {
 
         this.directionsService.route({
           origin: {'placeId': this.originPlaceId},
-          destination: {'placeId': 'ChIJtdkBdHqHToYRIMnCze-66yw'},
+          destination: {'placeId': 'ChIJNeOQtIH2XIYRpOCYK8zB06o'},
           travelMode: this.travelMode
         }, function(response, status) {
           if (status === 'OK') {
@@ -324,7 +321,7 @@ function Twitter() {
 			<br/>
 			
 			<!-- ---------------------------------------WEATHER API------------------------------------------------ -->
-			<span style="display: block !important; width: 400px; text-align: center; font-family: sans-serif; font-size: 12px;"><a href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:76001.1.99999&bannertypeclick=wu_clean2day" title="Arlington, Texas Weather Forecast" target="_blank"><img src="http://weathersticker.wunderground.com/weathersticker/cgi-bin/banner/ban/wxBanner?bannertype=wu_clean2day_cond&airportcode=KGKY&ForcedCity=Arlington&ForcedState=TX&zip=76001&language=EN" alt="Find more about Weather in Arlington, TX" width="400" /></a><br><a href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:76001.1.99999&bannertypeclick=wu_clean2day" title="Get latest Weather Forecast updates" style="font-family: sans-serif; font-size: 25px" target="_blank">Click for weather forecast</a></span>
+			<span style="display: block !important; width: 400px; text-align: center; font-family: sans-serif; font-size: 12px;"><a href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:78201.1.99999&bannertypeclick=wu_clean2day" title="San Antonio, Texas Weather Forecast" target="_blank"><img src="http://weathersticker.wunderground.com/weathersticker/cgi-bin/banner/ban/wxBanner?bannertype=wu_clean2day_cond&airportcode=KSAT&ForcedCity=San Antonio&ForcedState=TX&zip=78201&language=EN" alt="Find more about Weather in San Antonio, TX" width="400" /></a><br><a href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:78201.1.99999&bannertypeclick=wu_clean2day" title="Get latest Weather Forecast updates" style="font-family: sans-serif; font-size: 25px" target="_blank">Click for weather forecast</a></span>
 </div>
 
 
