@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <title>Houston Rockets</title>
-<center><font size = +6><b>Houston Rockets</b><br/></font></center>
+<center><font size = +6><b>Houston Rockets</b><br></font><br>
+	<button class = "button" onclick="Facebook()"><img src="http://3.bp.blogspot.com/-KNqO9JuXUN8/Ti2b1LHRquI/AAAAAAAAAIU/L6k8Wlzxj9k/s1600/logo_facebook.png" width = "15px" height = "15px" alt=""> Facebook</button>
+	<button class = "button" onclick="Twitter()"><img src="http://3.bp.blogspot.com/-NxouMmz2bOY/T8_ac97cesI/AAAAAAAAGg0/e3vY1_bdnbE/s1600/Twitter+logo+2012.png" width = "15px" height = "15px" alt="">Twitter</button> 
+</center>
 <font size = +1> <br/> </font>
 <head>
 
@@ -9,6 +12,18 @@
 #map {
 height: 400px;
 width: 100%;
+}
+
+.button {
+    border: 1px solid grey;
+    color: black;
+    padding: 5px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 0;
+    cursor: pointer;
 }
 
 .controls {
@@ -160,39 +175,35 @@ padding: 0 10px; /* RC padding */
 
 		
 			<!-- ---------------------------------------Center Column------------------------------------------------ -->
-			
-			<script>
-			function yourfunction() { 
-			$('.Facebook').show();
-			$('.Twitter').hide();
-			}
-			window.onload = yourfunction;
-			
-			function Facebook() {
-				$('.Facebook').show();
-				$('.Twitter').hide();
-				}
-			function Twitter() {
-				$('.Facebook').hide();
-				$('.Twitter').show();
-				}			
-			</script>
-			
-			<button onclick="Facebook()">Facebook</button>
-			<button onclick="Twitter()">Twitter</button> <br>
 
-			
-			<div id = "center" class = "Twitter">
-				<!-- ---------------------------------------TWITTER API------------------------------------------------ -->
-				<a class="twitter-timeline" data-width=100% data-height="1000" data-theme="dark" href="https://twitter.com/HoustonRockets?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">Tweets by The Houston Rockets</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-			</div>	
-			
-			<div id = "center" class = "Facebook">
-        	<!-- ---------------------------------------FACEBOOK API------------------------------------------------ -->
-				<center>
-					<iframe id = "socialMedia" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FHoustonRockets&tabs=timeline&width=5000&height=1000&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=1434339533256126" width=100% height="1000" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-				</center>
-			</div>
+<script>
+function yourfunction() { 
+	$('.Facebook').show();
+	$('.Twitter').hide();
+}
+window.onload = yourfunction;
+
+function Facebook() {
+	$('.Facebook').show();
+	$('.Twitter').hide();
+}
+function Twitter() {
+	$('.Facebook').hide();
+	$('.Twitter').show();
+}			
+</script>
+
+<div id = "center" class = "Twitter">
+	<!-- ---------------------------------------TWITTER API------------------------------------------------ -->
+	<a class="twitter-timeline" data-width=100% data-height="1000" data-theme="dark" href="https://twitter.com/HoustonRockets?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">Tweets by The Houston Rockets</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>	
+
+<div id = "center" class = "Facebook">
+<!-- ---------------------------------------FACEBOOK API------------------------------------------------ -->
+	<center>
+		<iframe id = "socialMedia" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FHoustonRockets&tabs=timeline&width=5000&height=1000&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=1434339533256126" width=100% height="1000" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+	</center>
+</div>
 			
 			
 			
