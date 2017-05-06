@@ -1,8 +1,7 @@
 div.gallery {
   margin: 5px;
-  padding: 1.5%;
   float: left;
-  width: 20%;
+  width: 23%;
   background-color: rgba(0, 0, 0, 0.5);
   transition: all 0.25s;
 }
