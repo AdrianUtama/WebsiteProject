@@ -3,64 +3,17 @@
 <title>Dallas Mavericks</title>
 <center style = "color : white"><font size = +6><b>Dallas Mavericks</b><br></font><br>
 	<button class = "button" onclick="Facebook()"><img src="http://3.bp.blogspot.com/-KNqO9JuXUN8/Ti2b1LHRquI/AAAAAAAAAIU/L6k8Wlzxj9k/s1600/logo_facebook.png" width = "15px" height = "15px" alt=""> Facebook</button>
-	<button class = "button" onclick="Twitter()"><img src="http://3.bp.blogspot.com/-NxouMmz2bOY/T8_ac97cesI/AAAAAAAAGg0/e3vY1_bdnbE/s1600/Twitter+logo+2012.png" width = "15px" height = "15px" alt="">Twitter</button> 
+	<button class = "button" onclick="Twitter()"><img src="http://3.bp.blogspot.com/-NxouMmz2bOY/T8_ac97cesI/AAAAAAAAGg0/e3vY1_bdnbE/s1600/Twitter+logo+2012.png" width = "15px" height = "15px" alt="">Twitter</button>
 </center>
 <font size = +1> <br/> </font>
 <head>
+<link rel="stylesheet" href="services.css">
 
 <style>
-#map {
-height: 400px;
-width: 100%;
-}
-
-table, th, td{
-  border: 1px solid white;
-  color: white;
-}
-
-.button {
-    border: 1px solid grey;
-    color: black;
-    padding: 5px 8px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0 0;
-    cursor: pointer;
-}
-
-.controls {
-margin-top: 10px;
-border: 1px solid transparent;
-border-radius: 2px 0 0 2px;
-box-sizing: border-box;
--moz-box-sizing: border-box;
-height: 32px;
-outline: none
-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-#origin-input,
-#origin-input:focus,
-
-#mode-selector {
-color: #fff;
-background-color: #B6BFBF;
-margin-left: 2px;
-padding: 5px 5px 0px 5px;
-}
-
-#mode-selector label {
-font-family: Roboto;
-font-size: 13px;
-font-weight: 300;
-}
 
 table, th, td{
 	border: 1px solid white;
-	color: white;
+  color: white;
 }
 
 
@@ -69,40 +22,7 @@ table, th, td{
  */
 body {
 background: #20385B;
-min-height: 100%;			
-margin: 0;			
-min-width: 150px;       /* LC fullwidth + CC padding */
 }
-
-#header, #footer {	
-margin-left: -200px;    /* LC fullwidth */
-margin-right: -210px;   /* RC fullwidth + CC padding */	
-}
-
-.column { position: relative; float: left; }
-
-#center { 
-padding: 0 5%; 
-width: 30%; 
-}
-
-#left {	
-width: 25%; /* LC width */ 
-padding:  0 10px;  /* LC padding */	
-}
-
-#right { 
-width: 30%; /* RC width */ 
-padding: 0 10px; /* RC padding */ 
-}
-
-#footer { clear: both; }
-
-.Facebook{position: relative; float: left}
-.Twitter{position: relative; float: left}
-
-/*** IE Fix ***/
-* html #left {left: 170px;  /* RC fullwidth */ }
 
 </style>
 
@@ -116,91 +36,25 @@ padding: 0 10px; /* RC padding */
       <!-- ---------------------------------------SPORT API------------------------------------------------ -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
       <p id = "sport">HERE</p>
-
-	<script type="text/javascript">
-      function DoSomethingWithData(data){
-        var A = [];
-        var counter = 0;
-        var str = "<strong><font color = white>Dallas Mavericks Play Times(2016):</font></strong><br>"
-        str += "<table> <tr> <th>Home team</th> <th>Away Team</th> <th>Date</th> <th>Time</th><th>Location</th> </tr>";
-        for(i=0; i<data.fullgameschedule.gameentry.length;++i) {
-          if(  (data.fullgameschedule.gameentry[i].homeTeam.Name == "Mavericks") || 
-          (data.fullgameschedule.gameentry[i].awayTeam.Name == "Mavericks") ) {
-
-  					var today = new Date();
-			        var gameDay = new Date(data.fullgameschedule.gameentry[i].date);
-			        console.log(gameDay);
-			        // if( gameDay < today ){ //filter the passed days 
-			        // 	continue;
-			        // }  else {
-			        	++counter;
-			        // }
-		          	if(counter == 16){
-		          		break;
-		          	}
-
-             A.push(data.fullgameschedule.gameentry[i]);
-             console.log(data.fullgameschedule.gameentry[i]);
-             var temp =  
-                  "<tr>"
-                    +"<td>" + data.fullgameschedule.gameentry[i].homeTeam.Name + "</td>"
-                    +"<td>" + data.fullgameschedule.gameentry[i].awayTeam.Name +"</td>"
-                    +"<td>" + data.fullgameschedule.gameentry[i].date + "</td>"
-                    +"<td>" + data.fullgameschedule.gameentry[i].time + "</td>"
-                    +"<td>" + data.fullgameschedule.gameentry[i].location + "</td>"
-                  +"</tr>";
-            str += temp ;
-          }
-        }
-        str += "</table>";
-        if(counter==0){
-        	str = "<font color = white><strong>No Games Available</strong></font>";
-        }
-        document.getElementById("sport").innerHTML = str;
-
-      }
-
-      $.ajax
-      ({
-        type: "GET",
-        url: "https://www.mysportsfeeds.com/api/feed/pull/nba/2016-2017-regular/full_game_schedule.json",
-        dataType: 'json',
-        async: false,
-        headers: {
-        "Authorization": "Basic " + btoa("twahl" + ":" + "CSCE315API")
-        },
-        success: function (data){
-        DoSomethingWithData(data);
-        }
-      });
-	</script>
+      <script type="text/javascript">
+      var full_team_name = "Dallas Mavericks";
+      var team_name = "Mavericks";
+      var is_filter = false;
+      var schedule_url = "https://www.mysportsfeeds.com/api/feed/pull/nba/2016-2017-regular/full_game_schedule.json";
+    	</script>
+      <script src="get_schedule.js"></script>
 
 </div>
 
-			
-			<!-- ---------------------------------------Center Column------------------------------------------------ -->
-			
-<script>
-	function yourfunction() { 
-		$('.Facebook').show();
-		$('.Twitter').hide();
-	}
-	window.onload = yourfunction;
 
-	function Facebook() {
-		$('.Facebook').show();
-		$('.Twitter').hide();
-	}
-	function Twitter() {
-		$('.Facebook').hide();
-		$('.Twitter').show();
-	}			
-</script>
+			<!-- ---------------------------------------Center Column------------------------------------------------ -->
+
+<script src="social_media_toggles.js"></script>
 
 <div id = "center" class = "Twitter">
 	<!-- ---------------------------------------TWITTER API------------------------------------------------ -->
 	<a class="twitter-timeline" data-width=100% data-height=1000 data-theme="dark" href="https://twitter.com/dallasmavs?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">Tweets by The Dallas Mavericks</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>	
+</div>
 
 <div id = "center" class = "Facebook">
 	<!-- ---------------------------------------FACEBOOK API------------------------------------------------ -->
@@ -209,7 +63,7 @@ padding: 0 10px; /* RC padding */
 	</center>
 </div>
 
-	
+
 <div id="right" class="column">
 			<!-- -----------------------------------------GOOGLE MAP API--------------------------------------------------- -->
 			<h3><center style = "color : white"><font size = +2>Directions to American Airlines Center</font></center></h3>
@@ -229,102 +83,14 @@ padding: 0 10px; /* RC padding */
     <div id="map"></div>
 
     <script>
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          mapTypeControl: false,
-          center: {lat: 32.7905 , lng: -96.8104},
-          zoom: 15
-        });
-
-        new AutocompleteDirectionsHandler(map);
-      }
-
-       /**
-        * @constructor
-       */
-      function AutocompleteDirectionsHandler(map) {
-        this.map = map;
-        this.originPlaceId = null;
-        this.destinationPlaceId = null;
-        this.travelMode = 'WALKING';
-        var originInput = document.getElementById('origin-input');
-        var modeSelector = document.getElementById('mode-selector');
-        this.directionsService = new google.maps.DirectionsService;
-        this.directionsDisplay = new google.maps.DirectionsRenderer;
-        this.directionsDisplay.setMap(map);
-
-        var originAutocomplete = new google.maps.places.Autocomplete(
-            originInput, {placeIdOnly: true});
-
-		this.setupClickListener('changemode-walking', 'WALKING');
-		this.setupClickListener('changemode-transit', 'TRANSIT');
-        this.setupClickListener('changemode-driving', 'DRIVING');
-
-        this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
-
-        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
-        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
-      }
-
-      // Sets a listener on a radio button to change the filter type on Places
-      // Autocomplete.
-      AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) {
-        var radioButton = document.getElementById(id);
-        var me = this;
-        radioButton.addEventListener('click', function() {
-          me.travelMode = mode;
-          me.route();
-        });
-      };
-
-      AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) {
-        var me = this;
-        autocomplete.bindTo('bounds', this.map);
-        autocomplete.addListener('place_changed', function() {
-          var place = autocomplete.getPlace();
-		  console.log (place);
-          if (!place.place_id) {
-            window.alert("Please select an option from the dropdown list.");
-            return;
-          }
-          if (mode === 'ORIG') {
-            me.originPlaceId = place.place_id;
-          } else {
-            me.destinationPlaceId = place.place_id;
-          }
-          me.route();
-        });
-
-      };
-
-      AutocompleteDirectionsHandler.prototype.route = function() {
-        if (!this.originPlaceId) {
-          return;
-        }
-        var me = this;
-
-        this.directionsService.route({
-          origin: {'placeId': this.originPlaceId},
-          destination: {'placeId': 'ChIJ-zImpTmZToYRynY4VbFanjg'},
-          travelMode: this.travelMode
-        }, function(response, status) {
-          if (status === 'OK') {
-            me.directionsDisplay.setDirections(response);
-          } else {
-            window.alert('Directions request failed due to ' + status);
-          }
-        });
-      };
-
+    var latitude = 32.7905;
+    var longitude = -96.8104;
     </script>
+    <script src="init_map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEEaFLCZ4co9ILFLC4aSQER8ZceoQzKic&libraries=places&callback=initMap"
         async defer></script>
 			<br/>
-			
+
 			<!-- ---------------------------------------WEATHER API------------------------------------------------ -->
 			<span style="display: block !important; width: 400px; text-align: center; font-family: sans-serif; font-size: 12px;"><a href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:75201.1.99999&bannertypeclick=wu_clean2day" title="Dallas, Texas Weather Forecast" target="_blank"><img src="http://weathersticker.wunderground.com/weathersticker/cgi-bin/banner/ban/wxBanner?bannertype=wu_clean2day_cond&airportcode=KDAL&ForcedCity=Dallas&ForcedState=TX&zip=75201&language=EN" alt="Find more about Weather in Dallas, TX" width="400" /></a><br><a href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:75201.1.99999&bannertypeclick=wu_clean2day" title="Get latest Weather Forecast updates" style="font-family: sans-serif;color : white; font-size: 25px" target="_blank">Click for weather forecast</a></span>
 

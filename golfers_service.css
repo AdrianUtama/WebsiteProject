@@ -1,0 +1,69 @@
+#map {
+  height: 400px;
+  width: 400px;
+}
+
+
+/**
+* 3col Holy Grail
+*/
+
+body {
+  background: rgb(250, 250, 250);
+  min-height: 100%;
+  margin: 0;
+  padding-left: 390px;
+  /* LC fullwidth */
+  padding-right: 500px;
+  /* RC fullwidth + CC padding */
+  min-width: 240px;
+  /* LC fullwidth + CC padding */
+}
+
+#header, #footer {
+  margin-left: -200px;
+  /* LC fullwidth */
+  margin-right: -210px;
+  /* RC fullwidth + CC padding */
+}
+
+.column {
+  position: relative;
+  float: left;
+}
+
+#center {
+  padding: 0 20px;
+  width: 100%;
+}
+
+#left {
+  position: absolute;
+  width: 300px;
+  /* LC width */
+  padding: 0 10px;
+  /* LC padding */
+  left: 0px;
+  /* LC fullwidth + CC padding */
+  top: 0px;
+}
+
+#right {
+  width: 400px;
+  /* RC width */
+  padding: 0 20px;
+  /* RC padding */
+  margin-right: -120%;
+}
+
+#footer {
+  clear: both;
+}
+
+
+/*** IE Fix ***/
+
+* html #left {
+  left: 170px;
+  /* RC fullwidth */
+}
