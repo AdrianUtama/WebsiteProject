@@ -69,30 +69,119 @@ background-image: url("DMBackground.png");
 
 <div id="right" class="column">
 			<!-- -----------------------------------------GOOGLE MAP API--------------------------------------------------- -->
-			<h3><center style = "color : black"><font size = +2>Directions to American Airlines Center</font></center></h3>
+			<h3><center style = "color : white"><font size = +2>Directions to American Airlines Center</font></center></h3>
 			<input id="origin-input" class="controls" type="text"
 				placeholder="Enter an origin location">
 
 	<div id="mode-selector" class="controls">
 
-	  <input type="radio" name="type" id="changemode-walking" >
+	  <input type="radio" name="type" id="changemode-walking" checked="checked">
       <label for="changemode-walking">Walking</label>
 	  <input type="radio" name="type" id="changemode-transit">
       <label for="changemode-transit">Transit</label>
-      <input type="radio" name="type" id="changemode-driving"checked="checked">
+      <input type="radio" name="type" id="changemode-driving">
       <label for="changemode-driving">Driving</label>
     </div>
 
     <div id="map"></div>
 
     <script>
-    var latitude = 32.7905;
-    var longitude = -96.8104;
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          mapTypeControl: false,
+          center: {lat: 32.7905 , lng: -96.8104},
+          zoom: 15
+        });
+
+        new AutocompleteDirectionsHandler(map);
+      }
+
+       /**
+        * @constructor
+       */
+      function AutocompleteDirectionsHandler(map) {
+        this.map = map;
+        this.originPlaceId = null;
+        this.destinationPlaceId = null;
+        this.travelMode = 'WALKING';
+        var originInput = document.getElementById('origin-input');
+        var modeSelector = document.getElementById('mode-selector');
+        this.directionsService = new google.maps.DirectionsService;
+        this.directionsDisplay = new google.maps.DirectionsRenderer;
+        this.directionsDisplay.setMap(map);
+
+        var originAutocomplete = new google.maps.places.Autocomplete(
+            originInput, {placeIdOnly: true});
+
+		this.setupClickListener('changemode-walking', 'WALKING');
+		this.setupClickListener('changemode-transit', 'TRANSIT');
+        this.setupClickListener('changemode-driving', 'DRIVING');
+
+        this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
+
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
+      }
+
+      // Sets a listener on a radio button to change the filter type on Places
+      // Autocomplete.
+      AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) {
+        var radioButton = document.getElementById(id);
+        var me = this;
+        radioButton.addEventListener('click', function() {
+          me.travelMode = mode;
+          me.route();
+        });
+      };
+
+      AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) {
+        var me = this;
+        autocomplete.bindTo('bounds', this.map);
+        autocomplete.addListener('place_changed', function() {
+          var place = autocomplete.getPlace();
+		  console.log (place);
+          if (!place.place_id) {
+            window.alert("Please select an option from the dropdown list.");
+            return;
+          }
+          if (mode === 'ORIG') {
+            me.originPlaceId = place.place_id;
+          } else {
+            me.destinationPlaceId = place.place_id;
+          }
+          me.route();
+        });
+
+      };
+
+      AutocompleteDirectionsHandler.prototype.route = function() {
+        if (!this.originPlaceId) {
+          return;
+        }
+        var me = this;
+
+        this.directionsService.route({
+          origin: {'placeId': this.originPlaceId},
+          destination: {'placeId': 'ChIJ-zImpTmZToYRynY4VbFanjg'},
+          travelMode: this.travelMode
+        }, function(response, status) {
+          if (status === 'OK') {
+            me.directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      };
+
     </script>
-    <script src="init_map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEEaFLCZ4co9ILFLC4aSQER8ZceoQzKic&libraries=places&callback=initMap"
         async defer></script>
 			<br/>
+
 
 			<!-- ---------------------------------------WEATHER API------------------------------------------------ -->
 			<span style="display: block !important; width: 400px; text-align: center; font-family: sans-serif; font-size: 12px;"><a href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:75201.1.99999&bannertypeclick=wu_clean2day" title="Dallas, Texas Weather Forecast" target="_blank"><img src="http://weathersticker.wunderground.com/weathersticker/cgi-bin/banner/ban/wxBanner?bannertype=wu_clean2day_cond&airportcode=KDAL&ForcedCity=Dallas&ForcedState=TX&zip=75201&language=EN" alt="Find more about Weather in Dallas, TX" width="400" /></a><br><a href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:75201.1.99999&bannertypeclick=wu_clean2day" title="Get latest Weather Forecast updates" style="font-family: sans-serif;color : white; font-size: 25px" target="_blank">Click for weather forecast</a></span>
