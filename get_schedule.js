@@ -1,7 +1,7 @@
 function DoSomethingWithData(data) {
   var counter = 0;
   var A = [];
-  var str = "<strong><font color = white>" + full_team_name + " Play Times:</font></strong><br>";
+  var str = "<strong>" + full_team_name + " Play Times:</strong><br>";
   str += "<table> <tr> <th>Home team</th> <th>Away Team</th> <th>Date</th> <th>Time</th><th>Location</th> </tr>";
   for (i = 0; i < data.fullgameschedule.gameentry.length; ++i) {
     if ((data.fullgameschedule.gameentry[i].homeTeam.Name == team_name) ||
