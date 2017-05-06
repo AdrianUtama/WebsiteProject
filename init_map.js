@@ -22,7 +22,7 @@ function AutocompleteDirectionsHandler(map) {
   this.map = map;
   this.originPlaceId = null;
   this.destinationPlaceId = null;
-  this.travelMode = 'WALKING';
+  this.travelMode = 'DRIVING';
   var originInput = document.getElementById('origin-input');
   var modeSelector = document.getElementById('mode-selector');
   this.directionsService = new google.maps.DirectionsService;
