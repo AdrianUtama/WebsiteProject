@@ -33,7 +33,7 @@ body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-#origin-input, #origin-input:focus
+#origin-input, #origin-input:focus,
 
 #mode-selector {
   color: #fff;
