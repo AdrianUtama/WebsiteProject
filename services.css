@@ -1,0 +1,99 @@
+body {
+  min-height: 100%;
+  margin: 0;
+  min-width: 150px;
+  /* LC fullwidth + CC padding */
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+}
+
+.button {
+  border: 1px solid grey;
+  color: black;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0 0;
+  cursor: pointer;
+}
+
+.controls {
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#origin-input, #origin-input:focus, #mode-selector {
+  color: #fff;
+  background-color: #B6BFBF;
+  margin-left: 2px;
+  padding: 5px 5px 0px 5px;
+}
+
+#mode-selector label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#header, #footer {
+  margin-left: -200px;
+  /* LC fullwidth */
+  margin-right: -210px;
+  /* RC fullwidth + CC padding */
+}
+
+.column {
+  position: relative;
+  float: left;
+}
+
+#center {
+  padding: 0 5%;
+  width: 30%;
+}
+
+#left {
+  width: 25%;
+  /* LC width */
+  padding: 0 10px;
+  /* LC padding */
+}
+
+#right {
+  width: 30%;
+  /* RC width */
+  padding: 0 10px;
+  /* RC padding */
+}
+
+#footer {
+  clear: both;
+}
+
+.Facebook {
+  position: relative;
+  float: left
+}
+
+.Twitter {
+  position: relative;
+  float: left
+}
+
+
+/*** IE Fix ***/
+
+* html #left {
+  left: 170px;
+  /* RC fullwidth */
+}
