@@ -38,7 +38,7 @@ function DoSomethingWithData(data) {
   }
   str += "</table>";
   if (counter == 0) {
-    str = "<font color = black><strong>No Games Available</strong></font>";
+    str = "<font color = grey><strong>No Games Available</strong></font>";
   }
   document.getElementById("sport").innerHTML = str;
 
